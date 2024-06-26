@@ -31,6 +31,9 @@ axios.get('http://127.0.0.1:8000/api/games').then(res => {
 <h1>GAME COMPONENT</h1>
 <ul v-for="game in games">
     <li>{{ game.name }}</li>
+
+     <!--Il pulsante che mi fa  passare all vista delle show-->
+     <router-link :to="{name: 'single-game', params: {id: game.id}}"  class="btn btn-primary">Show the game</router-link>
 </ul>
 </template>
 

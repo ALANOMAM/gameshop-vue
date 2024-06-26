@@ -34,6 +34,8 @@ axios.get('http://127.0.0.1:8000/api/products').then(res => {
  <h1>PRODUCT COMPONENT</h1>
  <ul v-for="product in products">
     <li>{{ product.name }}</li>
+    <!--Il pulsante che mi fa  passare all vista delle show-->
+    <router-link :to="{name: 'single-product', params: {id: product.id}}"  class="btn btn-primary">Show the product</router-link>
 </ul>
 </template>
 
