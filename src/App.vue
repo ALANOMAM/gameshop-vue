@@ -1,18 +1,19 @@
 <script>
-
-
+import FooterApp from './components/FooterApp.vue';
+import HeaderApp from './components/HeaderApp.vue'; 
 export default{
   components:{
+    FooterApp,
+    HeaderApp,
   }
 }
 
 </script>
 
 <template>
- 
-  <h1><u>APP VUE FILE</u></h1>
+  <HeaderApp></HeaderApp>
   <router-view></router-view>
- 
+  <FooterApp></FooterApp>
 
 </template>
 
