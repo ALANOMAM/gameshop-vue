@@ -107,7 +107,9 @@ watch: {
 .footer {
     position: relative;
     padding: 40px 0;
-    background-color: rgba(29, 20, 39, 1);
+    background-image: url('/public/img/parallax.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: 1;
 
     .row {
