@@ -1,0 +1,34 @@
+         <!-- inner carousel start-->
+<div id="carouselExample" class="carousel slide">
+
+<!--inner carousel item list container start-->
+<div class="carousel-inner yellow">
+
+  <!-- inner carousel small item list start SOLO IL PRIMO DIV DEVE ESSERE "ACTIVE"-->
+  <div v-for="game in games" >
+<div class="carousel-item box" :class="game.id == 1 ? 'active': ''"  > 
+<!-- inner carousel image and description start-->
+<div class="image-desc">
+<img src="/public/img/cms-banner-02.jpg" class="d-block w-100" alt="image">
+
+<div class="game-name">{{ game.name }}</div>
+<!--Il pulsante che mi fa  passare all vista delle show-->
+<router-link :to="{name: 'single-game', params: {id: game.id}}"  class="btn btn-primary game-button">Show the game</router-link>
+ </div>
+ <!-- inner carousel image and description end-->
+ </div>
+  </div>
+  <!-- inner carousel small item list end-->
+</div>
+<!--inner carousel item list container end-->
+
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>
+</div>
+<!-- inner carousel end-->

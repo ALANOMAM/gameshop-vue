@@ -1,5 +1,5 @@
 <script>
-
+import IntroApp from '../components/IntroApp.vue';
 import ProductApp from '../components/ProductApp.vue';
 import GameApp from '../components/GameApp.vue'
 import SponsorApp from '../components/SponsorApp.vue';
@@ -8,6 +8,7 @@ import BlogApp from '../components/BlogApp.vue';
 export default{
     name:'HomePage',
   components:{
+    IntroApp,
     ProductApp,
     GameApp,
     SponsorApp,
@@ -25,16 +26,11 @@ export default{
 </script>
 
 <template>
- <div class="container">
-  <h1><u>HOMEPAGE</u></h1>
-  <ProductApp></ProductApp>
+  <IntroApp></IntroApp>
   <GameApp></GameApp>
-  <SponsorApp></SponsorApp>
+  <ProductApp></ProductApp>
   <BlogApp></BlogApp>
- </div>
-
- 
-
+  <SponsorApp></SponsorApp>
 </template>
 
 <style scoped>

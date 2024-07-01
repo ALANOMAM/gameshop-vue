@@ -29,13 +29,16 @@ export default{
           <a class="nav-link  options" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link options" href="#">Games</a>
+          <a class="nav-link options" href="#games-section">Games</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link options" href="#">Products</a>
+          <a class="nav-link options" href="#products-section">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link options" href="#">Blogs</a>
+          <a class="nav-link options" href="#blogs-section">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link options" href="#sponsors-section">Sponsors</a>
         </li>
       </ul>
 
@@ -78,6 +81,7 @@ export default{
   background-color: rgba(29, 20, 39, 1);
   padding-top: 20px;
   padding-bottom: 20px;
+  box-shadow: rgba(249, 170, 1, 0.07)  0px 1px 1px, rgba(249, 170, 1, 0.07)  0px 2px 2px, rgba(249, 170, 1, 0.07)  0px 4px 4px, rgba(249, 170, 1, 0.07)  0px 8px 8px, rgba(249, 170, 1, 0.07)  0px 16px 16px;
 
   .options{
     color: white;
