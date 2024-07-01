@@ -35,7 +35,7 @@ axios.get('http://127.0.0.1:8000/api/blogs').then(res => {
     </div>
 
     <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
+  <div class="carousel-inner box">
      
     
       <!--for esterno start-->
@@ -75,6 +75,7 @@ axios.get('http://127.0.0.1:8000/api/blogs').then(res => {
 
 /*overlay immagine e backgroud color start*/
 section{
+ padding-top:20px;
  background-image: url('/public/img/Consequunt-magni-dolores.jpg');
  background-size: cover;
  background-repeat: no-repeat;
@@ -130,5 +131,9 @@ height:500px;
    font-size: 30px;  
 }
 
+.box{
+    border-radius: 10px;
+    box-shadow: rgba(249, 170, 1, 0.4) 0px 5px 15px;
+}
 
 </style>

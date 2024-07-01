@@ -36,7 +36,7 @@ axios.get('http://127.0.0.1:8000/api/sponsors').then(res => {
  
 <!--carousel start-->
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
+  <div class="carousel-inner box">
 
   <!--elemento singolo del carousel end-->
     <div class="carousel-item" :class="sponsor.id == 1 ? 'active' : ''" data-bs-interval="3000" v-for="(sponsor,index) in sponsors">
@@ -66,7 +66,14 @@ axios.get('http://127.0.0.1:8000/api/sponsors').then(res => {
 </template>
 
 <style lang="scss" scoped>
+
+.box{
+    border-radius: 10px;
+    box-shadow: rgba(249, 170, 1, 0.4) 0px 5px 15px;
+}
+
 section{
+padding-top:20px;
 background-color: rgba(29, 20, 39, 1) ;
 }
 
@@ -89,12 +96,14 @@ height:500px;
     width:100%;
     height: 100%;
     position: relative;
+    
 }
 
 .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
 }
 
 .item .text {

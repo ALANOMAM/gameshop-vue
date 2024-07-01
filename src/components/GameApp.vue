@@ -90,7 +90,7 @@ methods: {
   </div>
     
 <!--outer carousel start-->
-<div id="carouselExampleIndicators" class="carousel slide box">
+<div id="carouselExampleIndicators" class="carousel slide box box2">
   <div class="carousel-indicators gap-3">
 
     <div class="outer-carousel-switch">
@@ -167,6 +167,7 @@ methods: {
 <style lang="scss" scoped>
 
 section{
+  padding-top:20px;
   background-color: rgba(29, 20, 39, 1);
 }
 
@@ -181,6 +182,12 @@ max-width: 800px;
 margin-left: auto;
 margin-right: auto;
 height:500px;
+}
+
+
+.box2{
+    border-radius: 10px;
+    box-shadow: rgba(249, 170, 1, 0.4) 0px 5px 15px;
 }
 
 .outer-carousel-switch{
@@ -282,8 +289,6 @@ height:500px;
   color:white;
   font-size: 30px;
   }
-
- 
 
 }
 

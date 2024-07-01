@@ -6,6 +6,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from './pages/HomePage.vue';
 import SingleGame from './pages/SingleGame.vue';
 import SingleProduct from './pages/SingleProduct.vue';
+import PaymentPage from './pages/PaymentPage.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -27,6 +28,12 @@ const router = createRouter({
             path: '/product/:id',
             name: 'single-product',
             component: SingleProduct,
+        },
+
+        {
+            path: '/payment',
+            name: 'payment-page',
+            component: PaymentPage,
         },
     ]
 });

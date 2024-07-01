@@ -26,7 +26,10 @@ export default{
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link  options" aria-current="page" href="#">Home</a>
+           <!--Il pulsante che mi fa  passare alla home-->
+           <router-link :to="{name: 'home'}"  class="nav-link  options" aria-current="page">
+            Home
+           </router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link options" href="#games-section">Games</a>
@@ -56,8 +59,11 @@ export default{
             <i class="fa-solid fa-user"></i>
         </a>
         <!--link per il carello-->
-        <a class="nav-link options" href="#">
+        <a class="nav-link " href="#">
+            <!--Il pulsante che mi fa  passare all vista dei pagamenti-->
+           <router-link :to="{name: 'payment-page'}"  class="options">
             <i class="fa-solid fa-bag-shopping"></i>
+           </router-link>
         </a>  
     </div>
     <!--parte destra fine-->
@@ -81,7 +87,7 @@ export default{
   background-color: rgba(29, 20, 39, 1);
   padding-top: 20px;
   padding-bottom: 20px;
-  box-shadow: rgba(249, 170, 1, 0.07)  0px 1px 1px, rgba(249, 170, 1, 0.07)  0px 2px 2px, rgba(249, 170, 1, 0.07)  0px 4px 4px, rgba(249, 170, 1, 0.07)  0px 8px 8px, rgba(249, 170, 1, 0.07)  0px 16px 16px;
+   /*box-shadow: rgba(249, 170, 1, 0.07)  0px 1px 1px, rgba(249, 170, 1, 0.07)  0px 2px 2px, rgba(249, 170, 1, 0.07)  0px 4px 4px, rgba(249, 170, 1, 0.07)  0px 8px 8px, rgba(249, 170, 1, 0.07)  0px 16px 16px;*/
 
   .options{
     color: white;
