@@ -1,7 +1,12 @@
 <script>
-
+import {store} from '../store.js'
 export default{
     name:'HeaderApp',
+    data(){
+      return{
+        store,
+      }
+    }
 
 }
 
@@ -59,11 +64,12 @@ export default{
             <i class="fa-solid fa-user"></i>
         </a>
         <!--link per il carello-->
-        <a class="nav-link " href="#">
-            <!--Il pulsante che mi fa  passare all vista dei pagamenti-->
+        <a class="nav-link cart_icon" href="#">
+            <!--Il pulsante che mi fa  passare all vista del carrello-->
            <router-link :to="{name: 'cart-page'}"  class="options">
             <i class="fa-solid fa-bag-shopping"></i>
            </router-link>
+           <span class="number_of_items">{{ store.cart.length }}</span>
         </a>  
     </div>
     <!--parte destra fine-->
@@ -118,5 +124,23 @@ export default{
 
  }
 
+ .cart_icon{
+  //border: 2px solid red;
+  display: flex;
+  align-items: center;
+ }
+
+ .number_of_items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(249, 170, 1, 1);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+
+ }
 
 </style>

@@ -1,5 +1,7 @@
 
 <script>
+//importo il file store
+import {store} from '../store.js'
 import axios from 'axios'
 export default{
   name:'ProductApp',
@@ -7,10 +9,10 @@ export default{
   data(){
     return{
       //creo un array vuoto dove salverò tutti  i miei prodotti. 
-        products:[],
+        //products:[],
         //creo un array vuoto dove salverò i miei prodotti featured.
-        featuredProducts:[],
-
+        //featuredProducts:[],
+        store,
          // mi salvo una variabile dove memorizzo quale sia la slide attiva
          tabIndex: 0,
     }
@@ -21,17 +23,17 @@ mounted() {
 axios.get('http://127.0.0.1:8000/api/products').then(res => {
 
     //salvo gli oggetti che rappresentano il miei prodotti dentro l'array "products"
-    this.products = res.data.results;
-    console.log(this.products)
+    this.store.products = res.data.results;
+   // console.log(this.store.products)
 
 
      //filtro per i giochi che vanno nella categria speciale
-  this.products.forEach(product => {
+  this.store.products.forEach(product => {
       if(product.featured == true){
-        this.featuredProducts.push(product)
+        this.store.featuredProducts.push(product)
       }
   });
-  console.log(this.featuredProducts)
+  //console.log(this.store.featuredProducts)
 
 });
 
@@ -44,7 +46,7 @@ methods: {
     //gestione delle frecce per la categoria prodotti featured start
     featuredForward(){
      this.tabIndex++
-   if(this.tabIndex >= this.featuredProducts.length){
+   if(this.tabIndex >= this.store.featuredProducts.length){
      this.tabIndex = 0
    }
     },
@@ -53,7 +55,7 @@ methods: {
      this.tabIndex--
 
      if (this.tabIndex < 0) {
-         this.tabIndex = this.featuredProducts.length - 1;
+         this.tabIndex = this.store.featuredProducts.length - 1;
      }
     },
 
@@ -112,7 +114,7 @@ methods: {
 <div class="inner-container yellow">
 <div  class="slider-wrapper" > <!--tabindex="0"-->
 
-    <div  v-for="(featuredProduct,index) in featuredProducts"  v-show="tabIndex === index" class="item " >
+    <div  v-for="(featuredProduct,index) in store.featuredProducts"  v-show="tabIndex === index" class="item " >
 
       <!--thumbs start-->
     <div class="thumbs">

@@ -1,4 +1,5 @@
 <script>
+import {store} from '../store.js'
 import axios from 'axios'
 
 export default{
@@ -6,7 +7,8 @@ export default{
     data(){
         return{
             //creo un array vuoto dove salverò i miei blogs. 
-           blogs:[],
+           //blogs:[],
+           store,
              // mi salvo una variabile dove memorizzo quale sia la slide attiva
              tabIndex: 0,
         }
@@ -16,7 +18,7 @@ export default{
 axios.get('http://127.0.0.1:8000/api/blogs').then(res => {
 
     //salvo gli oggetti che rappresentano il miei blogs dentro l'array "blogs"
-    this.blogs = res.data.results;
+    this.store.blogs = res.data.results;
     //console.log(this.blogs)
 });
 },
@@ -39,7 +41,7 @@ axios.get('http://127.0.0.1:8000/api/blogs').then(res => {
      
     
       <!--for esterno start-->
-    <div v-for="(blog,index) in blogs" class="carousel-item" :class="blog.id == 1 ? 'active' : ''" >
+    <div v-for="(blog,index) in store.blogs" class="carousel-item" :class="blog.id == 1 ? 'active' : ''" >
         
      <div class="item">
             <img src="/public/img/cms-banner-04.jpg" class="d-block w-100" alt="...">

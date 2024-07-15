@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage.vue';
 import SingleGame from './pages/SingleGame.vue';
 import SingleProduct from './pages/SingleProduct.vue';
 import CartPage from './pages/CartPage.vue';
+import PaymentPage from './pages/PaymentPage.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -34,6 +35,12 @@ const router = createRouter({
             path: '/cart',
             name: 'cart-page',
             component: CartPage,
+        },
+
+        {
+            path: '/payment',
+            name: 'payment-page',
+            component: PaymentPage,
         },
     ]
 });

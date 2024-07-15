@@ -1,6 +1,8 @@
 
 
 <script>
+//importo il file store
+import {store} from '../store.js'
 import axios from 'axios'
 export default{
   name:'GameApp',
@@ -12,10 +14,11 @@ export default{
   data(){
     return{
       //creo un array vuoto dove salverò tutti i miei giochi. 
-        games:[],
+        //games:[],
         //creo un array vuoto dove salverò solo i giochi speciali. 
-        specialGames:[],
-
+        //specialGames:[],
+        store,
+        
       // mi salvo una variabile dove memorizzo quale sia la slide attiva
         tabIndex: 0,
     }
@@ -26,17 +29,17 @@ mounted() {
 axios.get('http://127.0.0.1:8000/api/games').then(res => {
 
     //salvo gli oggetti che rappresentano il miei prodotti dentro l'array "games"
-    this.games = res.data.results;
+    this.store.games = res.data.results;
     //console.log(this.games)
     
 
    //filtro per i giochi che vanno nella categria speciale
-  this.games.forEach(game => {
+  this.store.games.forEach(game => {
       if(game.special_category == true){
-        this.specialGames.push(game)
+        this.store.specialGames.push(game)
       }
   });
-  console.log(this.specialGames)
+  //console.log(this.store.specialGames)
     
     
      
@@ -52,7 +55,7 @@ methods: {
     //gestione delle frecce per la categoria giochi speciali start
     SpecialForward(){
      this.tabIndex++
-   if(this.tabIndex >= this.specialGames.length){
+   if(this.tabIndex >= this.store.specialGames.length){
      this.tabIndex = 0
    }
     },
@@ -61,7 +64,7 @@ methods: {
      this.tabIndex--
 
      if (this.tabIndex < 0) {
-         this.tabIndex = this.specialGames.length - 1;
+         this.tabIndex = this.store.specialGames.length - 1;
      }
     },
 
@@ -118,7 +121,7 @@ methods: {
 <div class="inner-container yellow">
 <div  class="slider-wrapper" > <!--tabindex="0"-->
 
-    <div  v-for="(specialGame,index) in specialGames"  v-show="tabIndex === index" class="item " >
+    <div  v-for="(specialGame,index) in store.specialGames"  v-show="tabIndex === index" class="item " >
 
       <!--thumbs start-->
     <div class="thumbs">

@@ -172,14 +172,14 @@ export default{
         <span>{{ this.quantity }}</span>
 
         <div class="counter">
-            <button type="button" class="btn btn-secondary" @click="decrement()"><i class="fa-solid fa-minus"></i></button>
-            <button type="button" class="btn btn-primary" @click="increment()"><i class="fa-solid fa-plus"></i></button>
+            <button type="button" class="btn" @click="decrement()"><i class="fa-solid fa-minus"></i></button>
+            <button type="button" class="btn" @click="increment()"><i class="fa-solid fa-plus"></i></button>
         </div>
 
       </div>
       <!--modal body end-->
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  @click="addToCart()">Add To Cart</button>
+        <button type="button" class="btn" data-bs-dismiss="modal"  @click="addToCart()">Add To Cart</button>
       </div>
     </div>
   </div>
@@ -194,12 +194,12 @@ export default{
 <a href="http://localhost:5174/#games-section" class="back_home"><i class="fa-solid fa-arrow-left"></i> Back To Homepage</a>
 
 <!--cart test start-->
-<ul class="list-group" v-for="cardItem in store.cart" >
+<!--<ul class="list-group" v-for="cardItem in store.cart" >
   <li class="list-group-item"> <strong>Element name: </strong>{{ cardItem.name }}</li>
   <li class="list-group-item"><strong>Element quantity: </strong>{{ cardItem.quantity }}</li>
   <li class="list-group-item"><strong>Element Total price: </strong>{{ cardItem.price }}$</li>
   <li class="list-group-item"><strong>Element id: </strong>{{ cardItem.id }}</li>
-</ul>
+</ul> -->
 <!--cart test end-->
 
 
@@ -215,7 +215,7 @@ export default{
 <style lang="scss" scoped>
 section{
     background-color:rgba(29, 20, 39, 1) ;
-    height: 100vh;
+    height: 50vh;
 }
 
 .title{
@@ -257,6 +257,28 @@ box-shadow: rgba(249, 170, 1, 0.8) 0px 5px 15px;
 .modal_btn{
     background-color:rgba(249, 170, 1, 1) ; 
     color: white;
+}
+
+.modal-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button{
+    background-color: rgba(249, 170, 1, 1);
+    color: white;
+  }
+}
+
+.counter{
+  display: flex;
+  gap:40px;
+}
+
+.modal-footer{
+  button{
+    background-color: rgba(249, 170, 1, 1);
+    color: white;
+  }
 }
 
 /* MODAL SECTION END*/ 

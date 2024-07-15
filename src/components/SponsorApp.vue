@@ -1,11 +1,13 @@
 <script>
+import {store} from '../store.js'
 import axios from 'axios'
 export default{
     name:'SponsorApp',
     data(){
         return{
+            store,
             //creo un array vuoto dove salverò i miei sponsors. 
-           sponsors:[],
+           //sponsors:[],
         }
     },
 
@@ -15,9 +17,9 @@ export default{
 axios.get('http://127.0.0.1:8000/api/sponsors').then(res => {
 
     //salvo gli oggetti che rappresentano il miei sponsors dentro l'array "sponsors"
-    this.sponsors = res.data.results;
+    this.store.sponsors = res.data.results;
 
-    console.log(this.sponsors)
+    //console.log(this.store.sponsors)
 });
 }
     
@@ -39,7 +41,7 @@ axios.get('http://127.0.0.1:8000/api/sponsors').then(res => {
   <div class="carousel-inner box">
 
   <!--elemento singolo del carousel end-->
-    <div class="carousel-item" :class="sponsor.id == 1 ? 'active' : ''" data-bs-interval="3000" v-for="(sponsor,index) in sponsors">
+    <div class="carousel-item" :class="sponsor.id == 1 ? 'active' : ''" data-bs-interval="3000" v-for="(sponsor,index) in store.sponsors">
         <div class="item">
             <img src="/public/img/parallax.jpg" class="d-block w-100" alt="...">
             <div class="text">
