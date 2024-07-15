@@ -133,11 +133,11 @@ methods: {
         <img src='/public/img/cms-banner-02.jpg' :alt=" 'image' + (index +1)"/>
         <div class="text">
             <h3>{{specialGame.name}}</h3>
-            <p>
-             {{specialGame.description}}
+            <p class="discount">
+              <strong>{{specialGame.discount}}% Discount</strong>
             </p>
             <!--Il pulsante che mi fa  passare all vista delle show-->
-           <router-link :to="{name: 'single-game', params: {id: specialGame.id}}"  class="btn btn-primary game-button">Show the game</router-link>
+           <router-link :to="{name: 'single-game', params: {id: specialGame.id}}"  class="btn  game-button">Show the game</router-link>
         </div>
        
 
@@ -303,4 +303,12 @@ height:500px;
     opacity: 1;
 }
 
+.discount{
+  color: rgba(249, 170, 1, 1) ;
+}
+
+.game-button{
+  background-color: rgba(249, 170, 1, 1) ;
+  color: white;
+}
 </style>

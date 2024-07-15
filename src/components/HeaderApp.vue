@@ -61,7 +61,7 @@ export default{
         <!--link per il carello-->
         <a class="nav-link " href="#">
             <!--Il pulsante che mi fa  passare all vista dei pagamenti-->
-           <router-link :to="{name: 'payment-page'}"  class="options">
+           <router-link :to="{name: 'cart-page'}"  class="options">
             <i class="fa-solid fa-bag-shopping"></i>
            </router-link>
         </a>  

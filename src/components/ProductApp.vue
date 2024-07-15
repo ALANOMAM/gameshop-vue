@@ -127,11 +127,11 @@ methods: {
         <img src='/public/img/cms-banner-01.jpg' :alt=" 'image' + (index +1)"/>
         <div class="text">
             <h3>{{featuredProduct.name}}</h3>
-            <p>
-             {{featuredProduct.description}}
+            <p class="discount">
+              <strong>{{featuredProduct.discount}}% Discount</strong>
             </p>
             <!--Il pulsante che mi fa  passare all vista delle show-->
-           <router-link :to="{name: 'single-product', params: {id: featuredProduct.id}}"  class="btn btn-primary product-button">Show the product</router-link>
+           <router-link :to="{name: 'single-product', params: {id: featuredProduct.id}}"  class="btn  product-button">Show the product</router-link>
         </div>
        
 
@@ -295,6 +295,15 @@ height:500px;
 .thumb.active {
     border: 2px solid #ccc;
     opacity: 1;
+}
+
+.discount{
+  color: rgba(249, 170, 1, 1) ;
+}
+
+.product-button{
+  background-color: rgba(249, 170, 1, 1) ;
+  color: white;
 }
 
 </style>

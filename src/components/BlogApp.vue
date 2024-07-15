@@ -45,7 +45,8 @@ axios.get('http://127.0.0.1:8000/api/blogs').then(res => {
             <img src="/public/img/cms-banner-04.jpg" class="d-block w-100" alt="...">
             <div class="text">
                 <div>{{ blog.description }}</div>
-                <a :href="blog.link" class="btn btn-primary">Click to explore</a>
+                <!--<a :href="blog.link" class="btn blog_button" target="_blank" >Click to explore</a>-->
+                <a href="https://getbootstrap.com/" class="btn blog_button" target="_blank" >Click to explore</a>
             </div>     
     </div>
                
@@ -120,11 +121,16 @@ height:500px;
 }
 
 .item .text {
+    //border: solid 2px blue;
     position: absolute;
     right:30%;
     bottom:8%;
-    text-align: center;
     color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
 }
 
 .left , .right{
@@ -134,6 +140,11 @@ height:500px;
 .box{
     border-radius: 10px;
     box-shadow: rgba(249, 170, 1, 0.4) 0px 5px 15px;
+}
+
+.blog_button{
+    background-color:rgba(249, 170, 1, 1) ;
+    color: white;
 }
 
 </style>
