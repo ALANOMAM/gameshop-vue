@@ -176,15 +176,19 @@ export default{
   </div>
 </div>
 
-<a href="http://localhost:5174/#games-section" class="back_home"><i class="fa-solid fa-arrow-left"></i> Back To Homepage</a>
+<!--Il pulsante che mi fa tornare all vista home-->
+<router-link :to="{name: 'home'}"  class="back_home">
+    <i class="fa-solid fa-arrow-left"></i>
+    Back To Homepage
+</router-link>
 
 <!--cart test start-->
-<ul class="list-group" v-for="(cardItem,index) in store.cart" >
+<!--<ul class="list-group" v-for="(cardItem,index) in store.cart" >
   <li class="list-group-item"> <strong>Element name: </strong>{{ cardItem.name }}</li>
   <li class="list-group-item"><strong>Element quantity: </strong>{{ cardItem.quantity }}</li>
   <li class="list-group-item"><strong>Element Total price: </strong>{{ cardItem.price }}$</li>
   <li class="list-group-item"><strong>Element id: </strong>{{ cardItem.id }}</li>
-</ul> 
+</ul> -->
 <!--cart test end-->
 
 
@@ -200,7 +204,7 @@ export default{
 <style lang="scss" scoped>
 section{
     background-color:rgba(29, 20, 39, 1) ;
-    height:100vh;
+    height:50vh;
 }
 
 .title{

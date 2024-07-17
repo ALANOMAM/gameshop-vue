@@ -155,7 +155,15 @@ if (existingItemIndex !== -1) {
   </div>
 </div>
 
-<a href="http://localhost:5174/#products-section" class="back_home"><i class="fa-solid fa-arrow-left"></i> Back To Homepage</a>
+
+<!--Il pulsante che mi fa tornare all vista home-->
+<router-link :to="{name: 'home'}"  class="back_home">
+    <i class="fa-solid fa-arrow-left"></i>
+    Back To Homepage
+</router-link>
+
+
+
 </div>
 <!--container end-->
 </section>

@@ -19,10 +19,11 @@ export default{
   <div class="container">
     
    <!-- Logo con link -->
-   <router-link :to="'/'">
-    <div class="logo">
-    <img src="" alt="Logo Game Shop">
-    </div>
+   <router-link :to="'/'" class="logo">
+    <h2>
+      AL<span>AN</span>
+      GAME<span>SHOP</span>
+    </h2>
     </router-link>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,6 +90,15 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+
+.logo{
+text-decoration: none;
+color: white;
+ span{
+  color: rgba(249, 170, 1, 1);
+ }
+}
+
  nav{
   background-color: rgba(29, 20, 39, 1);
   padding-top: 20px;

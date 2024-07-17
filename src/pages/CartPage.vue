@@ -99,7 +99,7 @@ export default{
 <style lang="scss" scoped>
 section{
     background-color:rgba(29, 20, 39, 1) ;
-    height: 50vh;
+    height: 100vh;
 }
 .title{
     color:rgba(249, 170, 1, 1) ;
