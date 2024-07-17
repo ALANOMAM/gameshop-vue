@@ -17,9 +17,6 @@ export default{
 
              //assegno una quantità iniziale di 1 per il modale.
              quantity:1,
-
-             //è collegata alla funzione "openModal()" sotto che mi collega l'id del prodotto selezionato.
-            currentProduct : null,
            
         }
     },
@@ -90,17 +87,6 @@ if (existingItemIndex !== -1) {
 }, */
 
 
-//fa in modo che quando apro il modale, esso sia associato solo al gioco aperto
-openModal(product) {
-    this.currentProduct = product;
-    this.quantity = 1;
-    //new bootstrap.Modal(document.getElementById('addGame')).show();
-},
-
-
-
-
-
 },
 
     
@@ -133,7 +119,7 @@ openModal(product) {
 
         <!--sezione modale start-->
            <!-- Button trigger modal -->
-<button type="button" class="modal_btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" @click="openModal(product)">
+<button type="button" class="modal_btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   Add to cart
 </button>
 

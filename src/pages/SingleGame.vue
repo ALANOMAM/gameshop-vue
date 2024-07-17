@@ -21,11 +21,7 @@ export default{
            
             //assegno una quantità iniziale di 1 per il modale.
             quantity:1,
-           
-
-            //è collegata alla funzione "openModal()" sotto che mi collega l'id del gioco selezionato.
-            currentGame : null,
-           
+              
         }
     },
 
@@ -62,10 +58,6 @@ export default{
             this.quantity++;
         },
 
-
-
-
-
   //ADD TO CART START      
         addToCart() {
             const cartItem = {
@@ -96,19 +88,7 @@ export default{
 
  /*updateLocalStorage() {
             localStorage.setItem('cart_' + this.gameId, JSON.stringify(this.cart));
-        }, */
-
-
-        //fa in modo che quando apro il modale, esso sia associato solo al gioco aperto
-        openModal(game) {
-            this.currentGame = game;
-            this.quantity = 1;
-            //new bootstrap.Modal(document.getElementById('addGame')).show();
-        },
-
-
-        
-      
+        }, */   
 
     },
 // Osserva i cambiamenti del ristorante e aggiorna il carrello di conseguenza
@@ -160,7 +140,7 @@ export default{
 
         <!--sezione modale start-->
            <!-- Button trigger modal -->
-<button type="button" class="modal_btn btn" data-bs-toggle="modal" data-bs-target="#addGame" @click="openModal(game)">
+<button type="button" class="modal_btn btn" data-bs-toggle="modal" data-bs-target="#addGame" >
   Add to cart
 </button>
 
