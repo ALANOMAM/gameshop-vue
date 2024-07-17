@@ -1,9 +1,12 @@
 <script>
+//importo il file store
+import {store} from '../store.js'
 import axios from 'axios'
 export default{
     name:'SingleProduct',
     data(){
         return{
+          store,
           //creo una variabile dove salverò il mio oggetto 
           product: null,
             //creo una variabile dpve salverò l'id dell'elemento selezionato 
@@ -11,6 +14,13 @@ export default{
             
             //salvo la parte statica della mia chiamata api dentro una variabile.
             apiBaseUrl: 'http://127.0.0.1:8000/api',
+
+             //assegno una quantità iniziale di 1 per il modale.
+             quantity:1,
+
+             //è collegata alla funzione "openModal()" sotto che mi collega l'id del prodotto selezionato.
+            currentProduct : null,
+           
         }
     },
 
@@ -34,6 +44,64 @@ export default{
             }
         })
     },
+
+    methods:{
+
+decrement() {
+    if (this.quantity > 1) {
+        this.quantity--;
+    }
+},
+    
+increment() {
+    this.quantity++;
+},
+
+//ADD TO CART START      
+addToCart() {
+    const cartItem = {
+        name: this.product.name,
+        quantity: this.quantity,
+        price: this.product.price * this.quantity,
+        id: this.product.id,
+    };
+    
+//Controlla se il piatto esiste già nel carrello
+const existingItemIndex = this.store.cart.findIndex(item => item.name === cartItem.name);
+
+if (existingItemIndex !== -1) {
+    //Aggiorna il piatto esistente
+    this.store.cart[existingItemIndex].quantity += this.quantity;
+    this.store.cart[existingItemIndex].price += cartItem.price;
+
+} else {
+    //Aggiungi il nuovo piatto
+    this.store.cart.push(cartItem);
+    //console.log(this.store.cart);
+} 
+
+ //this.updateLocalStorage();
+                    
+        },
+//ADD TO CART END 
+
+/*updateLocalStorage() {
+    localStorage.setItem('cart_' + this.gameId, JSON.stringify(this.cart));
+}, */
+
+
+//fa in modo che quando apro il modale, esso sia associato solo al gioco aperto
+openModal(product) {
+    this.currentProduct = product;
+    this.quantity = 1;
+    //new bootstrap.Modal(document.getElementById('addGame')).show();
+},
+
+
+
+
+
+},
 
     
 }
@@ -65,7 +133,7 @@ export default{
 
         <!--sezione modale start-->
            <!-- Button trigger modal -->
-<button type="button" class="modal_btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<button type="button" class="modal_btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" @click="openModal(product)">
   Add to cart
 </button>
 
@@ -74,15 +142,22 @@ export default{
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Number of items</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <!--modal body start-->
       <div class="modal-body">
-        ...
+        <span>{{ this.quantity }}</span>
+
+        <div class="counter">
+            <button type="button" class="btn" @click="decrement()"><i class="fa-solid fa-minus"></i></button>
+            <button type="button" class="btn" @click="increment()"><i class="fa-solid fa-plus"></i></button>
+        </div>
+
       </div>
+       <!--modal body start-->
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn" data-bs-dismiss="modal"  @click="addToCart()">Add To Cart</button>
       </div>
     </div>
   </div>
@@ -142,8 +217,33 @@ box-shadow: rgba(249, 170, 1, 0.8) 0px 5px 15px;
     color: rgba(249, 170, 1, 1);
 }
 
+/* MODAL SECTION START*/ 
 .modal_btn{
     background-color:rgba(249, 170, 1, 1) ; 
     color: white;
 }
+
+.modal-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button{
+    background-color: rgba(249, 170, 1, 1);
+    color: white;
+  }
+}
+
+.counter{
+  display: flex;
+  gap:40px;
+}
+
+.modal-footer{
+  button{
+    background-color: rgba(249, 170, 1, 1);
+    color: white;
+  }
+}
+
+/* MODAL SECTION END*/ 
 </style>

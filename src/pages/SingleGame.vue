@@ -6,6 +6,9 @@ export default{
     name:'SingleGame',
     data(){
         return{
+          //qui salverò i miei articoli sotto forma di oggetti
+            //cart:[],
+
             //qui ho salvato la cart
             store,
             //creo una variabile dove salverò il mio oggetto 
@@ -19,8 +22,6 @@ export default{
             //assegno una quantità iniziale di 1 per il modale.
             quantity:1,
            
-            //qui salverò i miei articoli sotto forma di oggetti
-            //cart:[],
 
             //è collegata alla funzione "openModal()" sotto che mi collega l'id del gioco selezionato.
             currentGame : null,
@@ -85,10 +86,10 @@ export default{
         } else {
             //Aggiungi il nuovo piatto
             this.store.cart.push(cartItem);
-            console.log(this.store.cart);
+            //console.log(this.store.cart);
         } 
         
-         /*this.updateLocalStorage();*/
+         //this.updateLocalStorage();
                             
                 },
  //ADD TO CART END 
@@ -104,6 +105,10 @@ export default{
             this.quantity = 1;
             //new bootstrap.Modal(document.getElementById('addGame')).show();
         },
+
+
+        
+      
 
     },
 // Osserva i cambiamenti del ristorante e aggiorna il carrello di conseguenza
@@ -155,7 +160,7 @@ export default{
 
         <!--sezione modale start-->
            <!-- Button trigger modal -->
-<button type="button" class="modal_btn btn" data-bs-toggle="modal" data-bs-target="#addGame" @click="openModal(dish)">
+<button type="button" class="modal_btn btn" data-bs-toggle="modal" data-bs-target="#addGame" @click="openModal(game)">
   Add to cart
 </button>
 
@@ -194,12 +199,12 @@ export default{
 <a href="http://localhost:5174/#games-section" class="back_home"><i class="fa-solid fa-arrow-left"></i> Back To Homepage</a>
 
 <!--cart test start-->
-<!--<ul class="list-group" v-for="cardItem in store.cart" >
+<ul class="list-group" v-for="(cardItem,index) in store.cart" >
   <li class="list-group-item"> <strong>Element name: </strong>{{ cardItem.name }}</li>
   <li class="list-group-item"><strong>Element quantity: </strong>{{ cardItem.quantity }}</li>
   <li class="list-group-item"><strong>Element Total price: </strong>{{ cardItem.price }}$</li>
   <li class="list-group-item"><strong>Element id: </strong>{{ cardItem.id }}</li>
-</ul> -->
+</ul> 
 <!--cart test end-->
 
 
@@ -215,7 +220,7 @@ export default{
 <style lang="scss" scoped>
 section{
     background-color:rgba(29, 20, 39, 1) ;
-    height: 50vh;
+    height:100vh;
 }
 
 .title{

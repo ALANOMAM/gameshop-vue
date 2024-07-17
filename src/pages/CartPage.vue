@@ -7,20 +7,44 @@ export default{
     data(){
         return{
            store,
+
            
         }
     },
 
+    computed: {
+      // Calcolo il prezzo totale del carrello
+       totalPrice() {
+    return this.store.cart.reduce((total, item) => total + item.price, 0);
+      }
+    },
+
     methods:{
-        decrement(cartQuantity) {
-            if (cartQuantity > 1) {
-                cartQuantity--;
-            }
+          // Metodo per rimuovere un articolo dal carrello
+          removeFromCart(index) {
+            this.store.cart.splice(index, 1);
+           // this.updateLocalStorage();
         },
 
-        increment(cartQuantity) {
-            cartQuantity++;
+        // Metodo per aggiornare il carrello nel localStorage
+        /*updateLocalStorage() {
+            localStorage.setItem('cart_' + this.gameId, JSON.stringify(this.store.cart));
+        }, */
+
+        // Metodo per aggiornare la quantità di un articolo nel carrello
+        updateCartItem(index, increment) {
+            if (increment) {
+                this.store.cart[index].quantity++;
+            } else if (this.store.cart[index].quantity > 1) {
+                this.store.cart[index].quantity--;
+            } else {
+                return;
+            }
+            this.store.cart[index].price = this.store.cart[index].quantity * (this.store.cart[index].price / (this.store.cart[index].quantity + (increment ? -1 : 1)));
+            // this.updateLocalStorage();
         },
+
+       
     }
 
 
@@ -37,20 +61,24 @@ export default{
     <h1 class="title">CART PAGE</h1>
     <!--cart box start-->
 <div class="cart_box">
-    <div class="item_info" v-for="cardItem in store.cart" >
+    <div class="item_info" v-for="(cardItem,index) in store.cart" >
         <span>{{ cardItem.name }}</span>
         <span>{{ cardItem.quantity }}</span>
         <span>{{ cardItem.price }}$</span>
 
         <div class="comands">
-        <i class="fa-solid fa-minus" @click="decrement(cardItem.quantity)"></i>
-       <i class="fa-solid fa-plus" @click="increment(cardItem.quantity)"></i>
-       <i class="fa-solid fa-trash"></i>
+        <i class="fa-solid fa-minus" @click="updateCartItem(index,false)"></i>
+       <i class="fa-solid fa-plus" @click="updateCartItem(index,true)"></i>
+       <i class="fa-solid fa-trash"  @click="removeFromCart(index)"></i>
         </div>
-
-
     </div>
 
+     <!-- PREZZO TOTALE ORDINE -->
+      <hr>
+     <div class="d-flex justify-content-between align-items-center mx-4">
+        <h2 class="fs-4 ms-2">Total</h2>
+        <span class="fs-3 me-1">{{ totalPrice }} €</span>
+        </div>
     
          <!--Il pulsante che mi fa  passare all vista dei pagamenti-->
          <router-link :to="{name: 'payment-page'}"  class="btn">
