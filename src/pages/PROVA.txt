@@ -1,0 +1,10 @@
+import Vue from 'vue';
+import { StripePlugin } from '@vue-stripe/vue-stripe';
+const options = {
+  pk:/*process.env.STRIPE_PUBLISHABLE_KEY*/'pk_test_51PgObDHCjKUgBOJnERGTFMfWBugsXbSlsbeERDTCpgfisDuSz0b3t9S4kOD6FNGxGVFrCAfmq6Q8ed92tGRKNDbX00CRiwHHcW',
+  stripeAccount: /*process.env.STRIPE_ACCOUNT*/ 'https://dashboard.stripe.com/b/acct_1PgObDHCjKUgBOJn',
+  apiVersion: /*process.env.API_VERSION,*/ '2024-07-25',
+  locale: /*process.env.LOCALE,*/ 'It',
+};
+
+Vue.use(StripePlugin, options);
